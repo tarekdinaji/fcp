@@ -1,0 +1,44 @@
+<h3>All Categories</h3>
+
+<div class="container">
+  <div class="d-md-flex justify-content-md-end">
+    <%= link_to "Add new", new_category_url, class:"btn btn-primary me-md-2"%>
+  </div>
+  <table class="table table-striped mt-2">
+    <thead>
+      <tr>
+        <th scope="col-3">#</th>
+        <th scope="col-6">Name</th>
+        <th scope="col-4">Type</th>
+        <th scope="col-3">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% row_number = 0 %>
+      <% @categories.each do |category| 
+        row_number += 1
+      %>
+      <tr>
+        <th scope="row"><%= row_number %></th>
+        <td><%= category.name%></td>
+        <td>
+          <%= if category.category_id 
+                "Sub Category" 
+              else 
+              "Main Category" 
+              end
+          %>
+        </td>
+        <td>
+        <%= link_to "view", category, class:"btn btn-info" %>
+        <%= link_to "edit", edit_category_url(category), class:"btn btn-warning" %>
+        <%= link_to "Destroy", category_path(category), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"         } , class:"btn btn-danger"
+        %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,15 @@
+<h3>Create New Category</h3>
+
+<%= form_with model: @category do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :cagetory_id %><br>
+    <%= form.number_field :category_id %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
