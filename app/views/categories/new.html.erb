@@ -1,15 +1,44 @@
 <h3>Create New Category</h3>
 
-<%= form_with model: @category do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
-  <p>
-    <%= form.label :cagetory_id %><br>
-    <%= form.number_field :category_id %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<form class= "mt-4">
+  <%= form_with model: @category do |form| %>
+    <div class="row mb-3">
+      <%= form.label :name, class:"col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= form.text_field :name, placeholder: "New Category Name", class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= form.label :details, "Category Details", class:"col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= form.text_field :details, placeholder: "Category Details", class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= form.label :cagetory_id, "Parent Category", class:"col-sm-2 col-form-lable" %>
+      <div class="col-sm-10">
+        <%= form.number_field :category_id, placeholder: "Parent Category ID", class: "form-control" %>
+      </div>
+    </div>
+    <fieldset class="row mb-3">
+      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            First radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+            Second radio
+          </label>
+        </div>
+      </div>
+    </fieldset>
+    <div>
+      <%= form.submit "Create Category", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</form>
